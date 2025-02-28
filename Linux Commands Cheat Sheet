@@ -1,0 +1,91 @@
+## Linux Commands Cheat Sheet
+## Subrahmanyeswarao Karri 
+=====================================================
+Category	Command	Description
+Basic Commands	pwd	Print working directory.
+ls	List files and directories.
+cd <dir>	Change directory to <dir>.
+mkdir <dir>	Create a new directory <dir>.
+rmdir <dir>	Remove an empty directory <dir>.
+rm <file>	Remove a file.
+rm -r <dir>	Remove a directory and its contents recursively.
+touch <file>	Create an empty file or update the timestamp of <file>.
+cat <file>	Display the contents of a file.
+echo <text>	Output the text to the terminal or a file.
+man <command>	Show the manual (help) for a command.
+File Permissions	chmod <permissions> <file>	Change the file permissions (e.g., chmod 755 file).
+chown <user>:<group> <file>	Change the ownership of a file.
+chgrp <group> <file>	Change the group ownership of a file.
+ls -l	List files with detailed information including permissions.
+umask	View or set the default file permissions.
+stat <file>	Display detailed information about a file (permissions, size, last access time).
+File Management	cp <source> <destination>	Copy files or directories.
+mv <source> <destination>	Move or rename files or directories.
+find <path> -name <name>	Search for files in a directory hierarchy.
+grep <pattern> <file>	Search for a pattern in a file.
+locate <file>	Find the location of files (requires updatedb to be run first).
+tar -czf <archive.tar.gz> <dir>	Create a compressed archive of a directory.
+tar -xzf <archive.tar.gz>	Extract a compressed archive.
+Process Management	ps	Display current running processes.
+top	Display real-time process information.
+htop	Interactive process viewer (requires installation).
+kill <PID>	Terminate a process by its Process ID (PID).
+killall <process>	Kill all processes by name.
+bg	Resume a job in the background.
+fg	Bring a background job to the foreground.
+jobs	List all current jobs.
+Disk Usage	df	Display disk space usage.
+du <dir>	Display disk usage for a directory.
+lsblk	List all block devices (disks, partitions).
+fdisk -l	List all partitions on the system.
+mount <device> <mount_point>	Mount a device to a directory.
+umount <mount_point>	Unmount a device.
+Networking	ip a	Display network interfaces and IP addresses.
+ifconfig	Display network interfaces (deprecated, use ip instead).
+ping <host>	Send ICMP echo request to a host to check network connectivity.
+traceroute <host>	Trace the route packets take to a network host.
+netstat	Show active network connections and their states.
+ss	Display network sockets (faster and more feature-rich than netstat).
+wget <url>	Download a file from the web.
+curl <url>	Transfer data from or to a server using various protocols.
+System Information	uname -a	Display system information (kernel, OS, etc.).
+uptime	Show how long the system has been running.
+hostname	Display or set the system's hostname.
+free	Show memory usage (RAM and swap).
+top	Real-time system monitor for processes and resource usage.
+dmesg	Show kernel ring buffer messages (boot logs).
+User Management	whoami	Display the current logged-in user.
+id	Display user and group information.
+useradd <username>	Add a new user.
+usermod -aG <group> <user>	Add a user to a group.
+passwd <user>	Change the password for a user.
+deluser <user>	Delete a user.
+groupadd <group>	Create a new user group.
+Package Management	apt-get install <package>	Install a package (Debian/Ubuntu-based systems).
+yum install <package>	Install a package (Red Hat/CentOS-based systems).
+dnf install <package>	Install a package (Fedora systems).
+apt-get update	Update the package database (Debian/Ubuntu).
+apt-get upgrade	Upgrade installed packages (Debian/Ubuntu).
+dpkg -l	List installed packages (Debian/Ubuntu).
+rpm -qa	List installed packages (Red Hat/CentOS).
+System Shutdown and Reboot	reboot	Reboot the system.
+shutdown	Shutdown the system.
+halt	Immediately stop the system.
+poweroff	Power off the system.
+Log Management	tail -f <logfile>	Follow the contents of a log file in real time.
+less <logfile>	View large log files (with paging).
+journalctl	View system logs (on systems using systemd).
+Environment Variables	export VAR=value	Set an environment variable.
+echo $VAR	Print the value of an environment variable.
+env	Display all environment variables.
+Text Processing	cat <file>	Display file contents.
+grep <pattern> <file>	Search for a pattern in a file.
+sed 's/old/new/g' <file>	Replace occurrences of "old" with "new" in a file.
+awk '{print $1}' <file>	Print the first column of a file (space-delimited).
+sort <file>	Sort lines in a file.
+wc <file>	Count lines, words, and characters in a file.
+Archiving & Compression	tar -czf <archive.tar.gz> <dir>	Create a compressed tar archive of a directory.
+tar -xzf <archive.tar.gz>	Extract a compressed tar archive.
+gzip <file>	Compress a file using gzip.
+gunzip <file.gz>	Decompress a .gz file.
+This cheat sheet contains the most commonly used Linux commands, categorized for easy reference.
