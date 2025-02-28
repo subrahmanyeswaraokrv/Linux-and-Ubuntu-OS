@@ -1,0 +1,125 @@
+## Shell Script Setup and Cron Job Guide:
+## Subrahmanyeswarao Karri 
+## This document provides a step-by-step guide to creating a simple shell script, setting execute permissions, 
+    modifying the script to display an author’s name, and scheduling the script to run automatically using cron.
+
+1. Create a Simple Shell Script
+Let's start by creating a simple shell script. This script will print a message to the terminal.
+
+Example Script: myscript.sh
+Open your terminal and create a new script file.
+  
+nano myscript.sh
+Add the following content to the script:
+
+  
+#!/bin/  
+
+# This is a simple shell script
+echo "Hello Subrahmanyeswarao Karri"
+#!/bin/   is the shebang line that tells the system to execute the script using the    shell.
+echo "Hello Subrahmanyeswarao Karri" is the command that prints the author's name.
+Save and exit the editor (in nano, press Ctrl+O, then Enter to save, and Ctrl+X to exit).
+
+2. Set Permissions to Execute the Script
+Before running the script, we need to set execute permissions for it.
+
+Step-by-Step Process:
+Check the current permissions:
+
+
+ls -l myscript.sh
+You might see output similar to:
+
+css
+  
+-rw-r--r-- 1 user user 45 Feb 28 14:00 myscript.sh
+This means the file is readable and writable, but not executable.
+
+Add execute permissions for the script:
+  
+chmod +x myscript.sh
+Verify the new permissions:
+  
+ls -l myscript.sh
+You should now see:
+
+sql
+  
+-rwxr-xr-x 1 user user 45 Feb 28 14:00 myscript.sh
+The x in rwx means the script is now executable.
+
+3. Run the Script
+Now that the script has execute permissions, you can run it.
+  
+./myscript.sh
+Output:
+
+nginx
+  
+Hello Subrahmanyeswarao Karri
+4. Add a Cron Job to Run the Script Automatically
+If you want the script to run automatically at a scheduled time, you can set up a cron job.
+
+What is Cron?
+cron is a time-based job scheduler in Unix-like operating systems. It allows you to schedule tasks to run periodically at fixed times, dates, or intervals.
+
+Steps to Set Up the Cron Job:
+Open the Crontab Configuration:
+
+To edit your crontab, run:
+
+crontab -e
+This will open the crontab file in your default text editor.
+
+Add a New Cron Job:
+
+For example, if you want to run your script every day at 9:00 AM, add the following line:
+
+
+0 9 * * * /path/to/myscript.sh
+0 9 * * *: This means the cron job will run at 9:00 AM every day.
+
+0: Minute (0th minute)
+9: Hour (9 AM)
+*: Day of the month (every day)
+*: Month (every month)
+*: Day of the week (every day of the week)
+/path/to/myscript.sh: Replace this with the full path to your script. You can get the full path by running:
+
+  
+realpath myscript.sh
+Example:
+  
+0 9 * * * /home/user/scripts/myscript.sh
+Save and Exit the Crontab: After adding the line, save and exit (in nano, press Ctrl+O, then Enter to save, and Ctrl+X to exit).
+
+Verify the Cron Job:
+
+To list all your cron jobs and verify it's scheduled correctly, you can run:
+
+crontab -l
+Example output:
+
+0 9 * * * /home/user/scripts/myscript.sh
+5. Testing the Cron Job
+To test whether your cron job runs correctly:
+
+Check the system logs: You can check if the script ran by looking at the system's cron log file. On many systems, cron logs are stored in /var/log/syslog or /var/log/cron.
+
+Example:
+  
+grep CRON /var/log/syslog
+Check for Output: If your script is set to output to the terminal (e.g., echo), make sure you redirect the output to a file so that you can check it later. Modify the cron job like this:
+
+0 9 * * * /path/to/myscript.sh >> /path/to/logfile.log 2>&1
+This will log the output and any errors to logfile.log.
+
+Summary
+This guide walked through the following steps:
+
+Create a simple shell script that prints a message with an author’s name.
+Set execute permissions for the script using chmod.
+Run the script manually by executing ./myscript.sh.
+Schedule the script to run automatically using cron by editing your crontab (crontab -e).
+You can now automate your tasks with shell scripts and cron jobs on your system.
